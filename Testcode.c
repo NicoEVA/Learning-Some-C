@@ -2,21 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-void input_data(int (*data)[40], int size1, int j, int value){
-    for (int i=0; i<size1; i++) {
+// void input_data(int (*data)[40], int size1, int value){
+//     for (int i=0; i<size1; i++) {
         
 
-         data[j][i]  = value; 
+//          data[i]  = value; 
         
-    }
-}
+//     }
+// }
 
 
 
 
 int main(){
     int bw_from_csv[60][40];
-    int i = 0;
+    int i;
     int j = 0;
     FILE *bw_array = fopen("data.csv", "r");
     if(!bw_array){
@@ -35,15 +35,22 @@ int main(){
         while (token != NULL)
         {
             int itoken = atoi(token);
-            input_data((bw_from_csv)[j][i], sizeof(bw_from_csv)[0], sizeof(bw_from_csv)[1], itoken);
-            i = i+1;
+            for (int i=0; i<sizeof(bw_from_csv)[0]; i++) {
+
+                
+
+                    scanf("%d", &bw_from_csv[i][j]);
+
+
+                
+
+            }
+            
             printf("Adding stuff %i", itoken);
             token = strtok(NULL, ",");
         }
         printf("\n");
-        j = j+1;
-
-        i = 0;
+        
 
     }
 
