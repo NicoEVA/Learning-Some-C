@@ -20,7 +20,7 @@ int main(){
     int black_array[4][4] = {
     {1,1,1,1},
     {1,1,1,1},
-    {1,0,1,1},
+    {1,0,1,0},
     {0,0,1,0}
     };
 
@@ -29,7 +29,7 @@ int main(){
     int bw[4]={0};
     
     int obs_counter = 0;
-    int obs_1[40][4];
+    int obs_1[40][4]={0};
     int i,j,p,pnew,o,count1,count2;
     int sum = 0;
 
@@ -46,8 +46,9 @@ int main(){
                 obs_1[count1][1]=j+1;
                 obs_1[count1][0]=i;
                 count1 +=1;
+                
             }
-            if (p - pnew == 1 && j<3 && j+1 >=  obs_1[count1][1]){
+            if (p - pnew == 1 && j<3 && j+1 >=  obs_1[count2][1]){
 
                 // bw[j+1]=1;
                 obs_1[count2][2]=j+1;
@@ -56,6 +57,10 @@ int main(){
         }
         printf("sum line %d %d \n",i,sum);
         sum = 0;
+        printf("i %d",i);
+
+
+
         // printArray(bw,4);
         // printArray(wb,4);
         
@@ -77,11 +82,12 @@ int main(){
     }
 
 
-    for(i=0;i<4;i++){
+    for(i=0;i<40;i++){
         
         printf("obstacle %d %d %d \n",obs_1[i][0],obs_1[i][1],obs_1[i][2]);
         
     }
+
 
 
 
